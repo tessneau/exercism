@@ -8,12 +8,12 @@ class HighScores
     @scores
   end
 
-  def personal_best
-    scores.max
+  def personal_best(n=1)
+    n == 1 ? scores.max : scores.max(n)
   end
 
   def personal_top_three
-    scores.sort.last(3).reverse
+    personal_best(3)
   end
 
   def latest
